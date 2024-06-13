@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFM: Web Interactiva</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #ff96a7;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ff96a7;
+            margin-bottom: 20px;
+        }
+
+        .navigation-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .navigation-buttons button {
+            background-color: #ff96a7;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: #ff6881;
+        }
+
+        .text-description {
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .text-description p {
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff96a7;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #ff96a737;
+        }
+
+        .form-wrapper {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-wrapper label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .form-wrapper select, .form-wrapper input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-wrapper input[type="submit"] {
+            background-color: #ff96a7;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-wrapper input[type="submit"]:hover {
+            background-color: #ff6881;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TFM: Web Interactiva</h1>
+            <hr>
+            
+            <div class="navigation-buttons">
+                <button onclick="window.location.href='https://data.world/julio/mammographic-masses'" style="display: inline-block; margin-right: 10px;">Conjunto de Datos</button>
+                <form action="/model_result" method="get" style="display: inline-block; margin-right: 10px;">
+                    <button type="submit">Resultados del Modelo</button>
+                </form>
+                <button onclick="window.location.href='https://github.com/DemetrioMunoz/GitR'" style="display: inline-block;">Repositorio del proyecto</button>
+            </div>
+            
+        </div>
+        <div class="text-description">
+            <p>Esta Web ha sido desarrollada como parte del trabajo final de máster titulado "Aplicación de técnicas de Clustering para la segmentación de masas mamográficas". Su objetivo principal es agrupar el riesgo de malignidad de las lesiones tumorales relacionadas con el cáncer de mama haciendo uso el conjunto de datos proveniente del estudio de <a href="https://pubmed.ncbi.nlm.nih.gov/18072480/" target="_blank">Elter et al., 2007</a> como referencia.</p>
+            <p>Para cumplir con este propósito, se han implementado diversos modelos de aprendizaje automático no supervisado, siendo el modelo K-means el seleccionado para agrupar las características tumorales siguiendo la clasificación Bi-Rads.</p>
+            <table>
+                <caption>Características tumorales (Clasificación Bi-Rads)</caption>
+                <tr>
+                    <th>Forma</th>
+                    <th>Margen (Contorno)</th>
+                    <th>Densidad</th>
+                </tr>
+                <tr>
+                    <td>Redonda (1)</td>
+                    <td>Circunscrita (1)</td>
+                    <td>Alta (1)</td>
+                </tr>
+                <tr>
+                    <td>Ovalada (2)</td>
+                    <td>Micro lobulada (2)</td>
+                    <td>Iso (2)</td>
+                </tr>
+                <tr>
+                    <td>Lobulada (3)</td>
+                    <td>Oscurecida (3)</td>
+                    <td>Baja (3)</td>
+                </tr>
+                <tr>
+                    <td>Irregular (4)</td>
+                    <td>Mal definida (4)</td>
+                    <td>Contiene grasa (4)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Espiculada (5)</td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>El funcionamiento de la Web es simple: los usuarios introducen las características tumorales mediante el formulario, y estas se agregan al modelo de agrupamiento. Como resultado, las observaciones se agrupan automáticamente en el grupo que les corresponde, determinando su riesgo de malignidad correspondiente.</p>
+        </div>
+        
+        <div class="form-wrapper">
+            <form action="/result" method="post">
+                <label for="shape">Forma:</label>
+                <select id="shape" name="shape" required>
+                    <option value="1">Redonda</option>
+                    <option value="2">Ovalada</option>
+                    <option value="3">Lobulada</option>
+                    <option value="4">Irregular</option>
+                </select>
+                <label for="margin">Margen:</label>
+                <select id="margin" name="margin" required>
+                    <option value="1">Circunscrita</option>
+                    <option value="2">Micro lobulada</option>
+                    <option value="3">Oscurecida</option>
+                    <option value="4">Mal definida</option>
+                    <option value="5">Espiculada</option>
+                </select>
+                <label for="density">Densidad:</label>
+                <select id="density" name="density" required>
+                    <option value="1">Alta</option>
+                    <option value="2">Iso</option>
+                    <option value="3">Baja</option>
+                    <option value="4">Contiene grasa</option>
+                </select>
+                <input type="submit" value="Procesar Características">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

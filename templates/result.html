@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFM: Resultados</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1, h2 {
+            color: #ff96a7;
+        }
+
+        .left-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            max-width: 800px;
+            background-color: #ffeef0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border: 2px solid #ff96a7;
+            border-radius: 10px;
+        }
+
+        .left-container h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ff96a7;
+            color: #fff;
+        }
+
+        .btn-back,
+        .btn-results {
+            background-color: #ff96a7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover,
+        .btn-results:hover {
+            background-color: #ff6881;
+        }
+
+        .prediction-container {
+            text-align: center;
+        }
+
+        .prediction-container p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-container">
+        <h1>Asignación</h1>
+        <div class="prediction-container">
+            <p>El modelo ha agrupado las características tumorales en el {{ group }} con un riesgo de malignidad del {{ prediction }}.</p>
+        </div>
+        <div class="button-container">
+            <button class="btn-back" onclick="window.location.href='/index'">Volver a la página principal</button>
+            <button class="btn-results" onclick="window.location.href='/model_result'">Resultados del Modelo</button>
+        </div>
+    </div>
+</body>
+</html>

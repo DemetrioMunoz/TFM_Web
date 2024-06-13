@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFM: Resultados del Modelo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff96a7;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #ff96a7;
+            margin-bottom: 20px;
+        }
+
+        .text-description {
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .text-description p {
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ff96a7;
+            color: #fff;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #ff96a737;
+        }
+
+        .image-container {
+        margin-bottom: 20px;
+        text-align: center;
+        }
+
+        .image-container img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        display: inline-block; 
+        }
+
+        .styled-table {
+        margin: 10 auto;
+        }
+
+        .btn-back {
+            background-color: #ff96a7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn-back:hover {
+            background-color: #ff6881;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados del Modelo</h1>
+        <hr>
+        <div class="text-description">
+            <p>En esta sección se presentan los resultados del modelo desplegado en la página web interactiva, proporcionando una visión general de los resultados obtenidos y facilitando la interpretación de los mismos.</p>
+            <p>Tras examinar los índices de evaluación y analizar la distribución visual de clústeres (Figura 1), se determinó que el número de clústeres que mejor se ajustó a la naturaleza de nuestros datos fue siete (k = 7). Con el número de clústeres seleccionado, los valores de evaluación (Tabla 1) indicaron que los grupos están bien separados, cohesionados y con las características tumorales asignadas a su correspondiente grupo.</p>
+        </div>
+        <figure class="image-container">
+            <img src="/static/images/output.png" alt="Descripción de la imagen 1">
+            <figcaption>Figura 1: Distribución de los clústeres del modelo k-means para k = 7 en el espacio UMAP.</figcaption>
+        </figure>
+        <table class="styled-table">
+            <caption>Tabla 1: Valores de los índices de evaluación para k = 7 clústeres.</caption>
+            <tbody>
+                <tr>
+                    <th colspan="2">Índices de evaluación (k = 7)</th>
+                </tr>
+                <tr>
+                    <td>Coeficiente de Silueta</td>
+                    <td>0,86</td>
+                </tr>
+                <tr>
+                    <td>Davies-Bouldin</td>
+                    <td>0,16</td>
+                </tr>
+                <tr>
+                    <td>Calinski-Harabasz</td>
+                    <td>68486,80</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-description">
+            <p>En la distribución de las características por clúster (Figura 2), se observó que, los grupos compartían características. Para la forma tumoral los grupos se segregaron de forma más definida, los clústeres 0 y 6 comparten la característica ovalada. Los clústeres 1, 3 y 5 se concentran en la forma irregular, con una presencia mínima del clúster 4. El clúster 4 se concentra en la forma redonda, donde también se observan unas pocas observaciones del clúster 3. El clúster 2 solo se observó para la forma lobulada. </p>
+            <p>Para el margen tumoral, se observó una segregación más irregular, ya que los clústeres comparten más características entre sí. En cuanto al margen circunscrito, solo están presentes los clústeres 0, 2, 4, 5 y 6. En el margen microlobulado, a pesar de tener un número bajo de observaciones, se presentaron todos los clústeres excepto el clúster 1. En el margen oscurecido, están presentes los clústeres 0, 1, 2, 4 y 6. Para el margen mal definido, no están presentes los clústeres 0, 2, 3, 5 y 6. Por último, el margen espiculado presenta los clústeres 0, 2, 4 y 5.</p>
+            <p>Para la característica densidad, se destacó que los clústeres se concentraron en la característica de densidad baja, con excepción del clúster 6, que está ausente en esta característica y solo está presente en la característica de densidad Iso. </p>
+        </div>
+        <figure class="image-container">
+            <img src="/static/images/result_fig_features.png" alt="Descripción de la imagen 2">
+            <figcaption>Figura 2: Distribución de las características tumorales: forma, margen y densidad por clúster. </figcaption>
+        </figure>
+        <div class="text-description">
+            <p>Por último, aprovechando que contamos con el diagnóstico de las observaciones (variable “malignant”), se realizó una evaluación de la calidad de nuestros clústeres. Para ello, se llevó a cabo un conteo de la distribución de las observaciones con diagnóstico de carácter maligno y benigno para cada clúster (Figura 3). El porcentaje de casos malignos por grupo fue el siguiente (Tabla 2): el clúster 0 presentó un 20% de casos malignos, el clúster 1 un 77%, el clúster 2 un 52%, el clúster 3 un 77%, el clúster 4 un 14%, el clúster 5 un 80% y el clúster 6 un 0%.</p>
+            <p>Gracias a esto, se pudo identificar qué grupos tienen características asociadas con diagnósticos de carácter maligno. Los clústeres 1, 3 y 5 presentan más del 75% de diagnósticos malignos cada uno. Estos clústeres comparten características como forma irregular, margen espiculado, margen mal definido y oscurecido, así como una densidad baja. Por otro lado, se identificaron clústeres con un porcentaje de observaciones malignas inferior al 20%, como los clústeres 0 y 4. Además, se observó un clúster con un 50% de observaciones malignas, el clúster 2, en el cual no se pudo determinar si la naturaleza de sus características es predominantemente maligna o benigna. El clúster 6 destaca por no contener ninguna observación maligna, lo que sugiere que sus características son de índole benignas. Este clúster se corresponde con características como forma ovalada, margen circunscrito y densidad iso.</p>
+            <p>Estos resultados parecen coherentes, ya que las características malignas se relacionan con formas irregulares, márgenes espiculados y mal definidos, mientras que las características benignas se relacionan con márgenes tumorales bien definidos y circunscritos, así como formas ovaladas y regulares (<a href="https://www.cancer.gov/" target="_blank">National Cancer Institute</a>).</p>
+
+        </div>
+        <figure class="image-container">
+            <img src="/static/images/result_fig_dist.png" alt="Descripción de la imagen 3">
+            <figcaption>Figura 3: Distribución de observaciones malignas y benigna por clúster. </figcaption>
+        </figure>
+        <table class="styled-table">
+            <caption>Tabla 2: Observaciones según el diagnostico, totales y porcentaje de malignidad para cada clúster. </caption>
+            <thead>
+                <tr>
+                    <th>Clúster</th>
+                    <th>Observaciones Benignas</th>
+                    <th>Observaciones Malignas</th>
+                    <th>Totales</th>
+                    <th>Porcentaje (%) obs. Malignas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>130</td>
+                    <td>31</td>
+                    <td>161</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>16</td>
+                    <td>56</td>
+                    <td>72</td>
+                    <td>77</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>39</td>
+                    <td>42</td>
+                    <td>81</td>
+                    <td>52</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>43</td>
+                    <td>147</td>
+                    <td>190</td>
+                    <td>77</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>156</td>
+                    <td>26</td>
+                    <td>182</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>24</td>
+                    <td>101</td>
+                    <td>125</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>19</td>
+                    <td>0</td>
+                    <td>19</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="/index" method="get" style="margin: 0 10px;">
+            <button class="btn-back" type="submit">Volver a la página principal</button>
+        </form>
+    </div>
+</body>
+</html>
