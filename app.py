@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import flask
-import pickle
+import dill
 from flask import Flask, redirect, url_for, request, render_template
 from sklearn.preprocessing import OneHotEncoder
 import umap
@@ -16,9 +16,9 @@ def index():
 
 def ValuePredictor(to_predict_list):
     # Load necessary models
-    loaded_umap = pickle.load(open("umap_model.pkl", "rb"))
-    loaded_kmeans = pickle.load(open("kmeans_model.pkl", "rb"))
-    ohe = pickle.load(open("ohe.pkl", "rb"))
+    loaded_kmeans = dill.load(open("kmeans_model.pkl", "rb"))
+    loaded_umap = dill.load(open("umap_model.pkl", "rb"))
+    ohe = dill.load(open("ohe.pkl", "rb"))  
 
     # Preprocess input
     df_input = pd.DataFrame([to_predict_list], columns=['shape', 'margin', 'density'])
