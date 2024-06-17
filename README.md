@@ -24,6 +24,7 @@ Los archivos pickle fueron obtenidos del código en "web_test.ipynb", donde se i
 ### Despliege
 La aplicación web interactiva ha sido desplegada utilizando el servicio de alojamiento 'render': https://render.com/.
 - **Aplicación web interactiva**: https://tfm-web.onrender.com/
+**Aceder a la aplicación web por primera vez puede demorar bastante tiempo**
 ## Autor
 -  **Nombre**: Demtrio Muñoz Álvarez
 -  **GitHub**: https://github.com/DemetrioMunoz
