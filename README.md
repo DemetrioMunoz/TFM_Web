@@ -23,5 +23,5 @@ Los archivos pickle fueron obtenidos del código en "web_test.ipynb", donde se i
 ## Despliege
 La aplicación web interactiva ha sido desplegada utilizando el servicio de alojamiento 'render': https://render.com/.
 ## Autor
-Nombre: Demtrio Muñoz Álvarez
-GitHub: https://github.com/DemetrioMunoz
+-  **Nombre**: Demtrio Muñoz Álvarez
+-  **GitHub**: https://github.com/DemetrioMunoz
