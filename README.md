@@ -18,6 +18,7 @@ Los archivos pickle fueron obtenidos del código en "web_test.ipynb", donde se i
 - 'templates/': Carpeta que contiene los archivos HTML utilizados para renderizar las diferentes vistas de la aplicación (index.html, result.html, model_result.html).
 - 'static/images: Carpeta que contiene los archivos PNG de los resultados del modelo K-means.
 - 'web_tes': Archivo Jupyter Notebook que contiene la implementacion del modelo K-means y las diferentes técnicas de preprocesamiento. Además de obtener guardar los modelo en los archivos pickle.
+- 'mammographic_masses_data.csv': Conjunto de datos utlizado para implementar el modelo de agrupamiento. 
 - 'requeriments.txt': Archivo que contiene todas las versiones de los modulos de python utilizados.
 - 'README': Guía detallada sobre la estructura, el propósito y el funcionamiento del proyecto. 
 ### Despliege
