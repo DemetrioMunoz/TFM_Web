@@ -19,6 +19,7 @@ Los archivos pickle fueron obtenidos del código en "web_test.ipynb", donde se i
 - 'static/images: Carpeta que contiene los archivos PNG de los resultados del modelo K-means.
 - 'web_tes': Archivo Jupyter Notebook que contiene la implementacion del modelo K-means y las diferentes técnicas de preprocesamiento. Además de obtener guardar los modelo en los archivos pickle.
 - 'requeriments.txt': Archivo que contiene todas las versiones de los modulos de python utilizados.
+- 'README': Guía detallada sobre la estructura, el propósito y el funcionamiento del proyecto. 
 ## Despliege
 La aplicación web interactiva ha sido desplegada utilizando el servicio de alojamiento 'render': https://render.com/.
 ## Autor
