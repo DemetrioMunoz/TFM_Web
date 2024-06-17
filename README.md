@@ -12,8 +12,8 @@ La aplicación no reentrena los modelos con los nuevos datos. En su lugar, utili
 Los archivos pickle fueron obtenidos del código en "web_test.ipynb", donde se implementó el modelo y los respectivos preprocesamientos.
 ### Esctructura 
 - 'app.py': Script principal que define la aplicación Flask, las rutas y la lógica para procesar las solicitudes de los usuarios.
-- 'kmeans_model.pkl': Modelo K-means. 
-- 'umap_model.pkl': Modelo de reduccion de dimensiones UMAP (Uniform Manifold Approximation and Projection for Dimension Reduction)
+- 'kmeans_model.pkl': Modelo K-means preguardado. 
+- 'umap_model.pkl': Modelo de reduccion de dimensiones UMAP (Uniform Manifold Approximation and Projection for Dimension Reduction).
 - 'ohe.pkl': Codificador One-Hot Encoder para las variables categoricas. 
 - 'templates/': Carpeta que contiene los archivos HTML utilizados para renderizar las diferentes vistas de la aplicación (index.html, result.html, model_result.html).
 - 'static/images: Carpeta que contiene los archivos PNG de los resultados del modelo K-means.
